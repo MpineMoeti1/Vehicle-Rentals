@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import java.net.URL?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.demo1.PaymentController"
+            prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #f5f7fa;">
+
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
+
+    <!-- Main Content Container - Centered -->
+    <VBox spacing="20" prefWidth="760"
+          AnchorPane.topAnchor="0"
+          AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0"
+          AnchorPane.rightAnchor="0"
+          alignment="CENTER">
+
+        <!-- Payment and Billing Header - moved here -->
+        <Label text="Payment and Billing" styleClass="header">
+            <padding>
+                <Insets bottom="10" />
+            </padding>
+        </Label>
+
+        <!-- Payment Details Card (Booking ID inserted here) -->
+        <VBox spacing="15" styleClass="card">
+            <GridPane hgap="20" vgap="15" prefWidth="760">
+                <columnConstraints>
+                    <ColumnConstraints prefWidth="150" halignment="RIGHT" />
+                    <ColumnConstraints prefWidth="200" />
+                    <ColumnConstraints prefWidth="150" halignment="RIGHT" />
+                    <ColumnConstraints prefWidth="200" />
+                </columnConstraints>
+
+                <!-- Row 0 - Booking ID -->
+                <Label text="Booking ID:" styleClass="input-label" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <TextField fx:id="bookingIdField" styleClass="input-field" promptText="Enter booking ID" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                <!-- Row 1 -->
+                <Label text="Total Amount ($):" styleClass="input-label" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <TextField fx:id="amountField" editable="false" styleClass="input-field highlight" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                <!-- Row 2 -->
+                <Label text="Rental Fee ($):" styleClass="input-label" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <TextField fx:id="rentalFeeField" styleClass="input-field" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Label text="Rental Duration (days):" styleClass="input-label" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                <TextField fx:id="rentalDurationField" styleClass="input-field" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+
+                <!-- Row 3 -->
+                <Label text="Payment Method:" styleClass="input-label" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <ComboBox fx:id="paymentMethodComboBox" styleClass="input-field" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <Label text="Additional Services ($):" styleClass="input-label" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                <TextField fx:id="additionalServicesField" styleClass="input-field" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+
+                <!-- Row 4 -->
+                <Label text="Late Fee ($):" styleClass="input-label" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                <TextField fx:id="lateFeeField" styleClass="input-field" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            </GridPane>
+        </VBox>
+
+        <!-- Action Buttons -->
+        <HBox spacing="20" alignment="CENTER">
+            <Button text="Calculate Total Amount" onAction="#handleCalculateTotal" styleClass="success-button" />
+            <Button text="Process Payment" onAction="#handleProcessPayment" styleClass="primary-button" />
+            <Button text="Back" onAction="#handleBack" style="-fx-background-color: #d9d9d9; -fx-text-fill: black; -fx-padding: 10; -fx-font-weight: bold;"/>
+        </HBox>
+
+        <!-- Status Message -->
+        <Label fx:id="statusLabel" styleClass="status-message" />
+    </VBox>
+</AnchorPane>

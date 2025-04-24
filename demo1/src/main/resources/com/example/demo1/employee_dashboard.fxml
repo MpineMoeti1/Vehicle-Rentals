@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo1.EmployeeDashboardController"
+           style="-fx-background-color: linear-gradient(to bottom right, #f0f4f8, #e5e9ec);">
+
+    <VBox alignment="CENTER" spacing="30" style="-fx-padding: 40;
+           -fx-background-color: rgba(255,255,255,0.95);
+           -fx-background-radius: 20;
+           -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 20, 0.2, 0, 5);
+           -fx-border-color: rgba(220,220,220,0.3);
+           -fx-border-width: 1;
+           -fx-border-radius: 20;
+           -fx-min-width: 500;">
+
+        <!-- Header Section -->
+        <VBox alignment="CENTER" style="-fx-background-color: linear-gradient(to right, #4a6baf, #3b5288);
+               -fx-background-radius: 15;
+               -fx-padding: 25 40;
+               -fx-effect: dropshadow(gaussian, rgba(74,107,175,0.3), 10, 0.2, 0, 3);">
+            <HBox alignment="CENTER_LEFT" spacing="20">
+                <Label fx:id="welcomeLabel" text="Welcome, Employee"
+                       style="-fx-font-size: 26px;
+                             -fx-font-weight: 800;
+                             -fx-text-fill: white;
+                             -fx-font-family: 'Segoe UI';
+                             -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 2, 0.5, 0, 1);"/>
+                <Label fx:id="roleLabel" text="Role: Employee"
+                       style="-fx-font-size: 16px;
+                             -fx-text-fill: rgba(255,255,255,0.9);
+                             -fx-font-family: 'Segoe UI';
+                             -fx-font-style: italic;"/>
+            </HBox>
+        </VBox>
+
+        <!-- Employee Controls Section -->
+        <Label text="Employee Dashboard"
+               style="-fx-font-size: 20px;
+                     -fx-font-weight: 700;
+                     -fx-text-fill: #2c3e50;
+                     -fx-font-family: 'Segoe UI';
+                     -fx-padding: 0 0 15 0;"/>
+
+        <VBox spacing="20" style="-fx-padding: 20 0;">
+            <!-- Bookings Button -->
+            <Button fx:id="handleBookingsButton" text="Manage Bookings" onAction="#handleBookings"
+                    style="-fx-background-color: linear-gradient(to bottom right, #4a6baf, #3b5288);
+                           -fx-text-fill: white;
+                           -fx-font-weight: 700;
+                           -fx-background-radius: 12;
+                           -fx-padding: 15 35;
+                           -fx-font-size: 16px;
+                           -fx-effect: dropshadow(gaussian, rgba(74,107,175,0.3), 8, 0.3, 0, 2);
+                           -fx-cursor: hand;">
+                <graphic>
+                    <HBox spacing="15" alignment="CENTER">
+                        <Label text="📅"
+                               style="-fx-font-size: 24px;
+                                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 2, 0.5, 0, 1);"/>
+                        <Label text="Manage Bookings"
+                               style="-fx-text-fill: white;
+                                     -fx-font-size: 15px;"/>
+                    </HBox>
+                </graphic>
+            </Button>
+
+            <!-- Payments Button -->
+            <Button fx:id="handlePaymentsButton" text="Manage Payments" onAction="#handlePayments"
+                    style="-fx-background-color: linear-gradient(to bottom right, #198754, #147245);
+                           -fx-text-fill: white;
+                           -fx-font-weight: 700;
+                           -fx-background-radius: 12;
+                           -fx-padding: 15 35;
+                           -fx-font-size: 16px;
+                           -fx-effect: dropshadow(gaussian, rgba(25,135,84,0.3), 8, 0.3, 0, 2);
+                           -fx-cursor: hand;">
+                <graphic>
+                    <HBox spacing="15" alignment="CENTER">
+                        <Label text="💳"
+                               style="-fx-font-size: 24px;
+                                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 2, 0.5, 0, 1);"/>
+                        <Label text="Manage Payments"
+                               style="-fx-text-fill: white;
+                                     -fx-font-size: 15px;"/>
+                    </HBox>
+                </graphic>
+            </Button>
+        </VBox>
+
+        <!-- Logout Button -->
+        <Button fx:id="logoutButton" text="Logout" onAction="#handleLogout"
+                style="-fx-background-color: transparent;
+                       -fx-text-fill: #dc3545;
+                       -fx-font-weight: 700;
+                       -fx-border-color: linear-gradient(to right, #dc3545, #c82333);
+                       -fx-border-radius: 8;
+                       -fx-border-width: 2;
+                       -fx-padding: 12 30;
+                       -fx-font-size: 14px;
+                       -fx-cursor: hand;
+                       -fx-effect: innershadow(gaussian, rgba(220,53,69,0.1), 5, 0.3, 0, 1);">
+        </Button>
+    </VBox>
+</StackPane>

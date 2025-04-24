@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo1.DashboardController"
+      style="-fx-background-color: linear-gradient(to bottom right, #f8fafc, #f1f5f9); -fx-padding: 30; -fx-spacing: 25;">
+
+    <!-- Header Section -->
+    <VBox alignment="CENTER" style="-fx-background-color: rgba(255, 255, 255, 0.7); -fx-background-radius: 15; -fx-padding: 25; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 5, 0, 0, 2); -fx-border-color: rgba(255, 255, 255, 0.5); -fx-border-width: 1; -fx-border-radius: 15;">
+        <HBox alignment="CENTER_LEFT" spacing="20">
+            <StackPane>
+                <Circle radius="30" fill="linear-gradient(to bottom right, #4a6baf, #6b46c1)">
+                    <effect>
+                        <DropShadow radius="5" color="rgba(74, 107, 175, 0.3)" />
+                    </effect>
+                </Circle>
+                <ImageView fitWidth="30" fitHeight="30" preserveRatio="true">
+                    <image>
+                        <Image url="@/admin-icon.png" />
+                    </image>
+                </ImageView>
+            </StackPane>
+            <VBox spacing="5">
+                <Label fx:id="welcomeLabel" text="Welcome Back, Admin"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #1e293b; -fx-font-family: 'Segoe UI';"/>
+                <Label fx:id="roleLabel" text="Administrator Dashboard"
+                       style="-fx-font-size: 14px; -fx-text-fill: #64748b; -fx-font-family: 'Segoe UI'; -fx-font-style: italic;"/>
+            </VBox>
+        </HBox>
+    </VBox>
+
+    <!-- Admin Controls Section -->
+    <VBox fx:id="adminSection" spacing="20" style="-fx-padding: 0;">
+        <Label text="Management Console" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #334155; -fx-font-family: 'Segoe UI'; -fx-padding: 0 0 10 15;"/>
+
+        <TilePane hgap="20" vgap="20" prefColumns="2" style="-fx-padding: 15;">
+            <!-- Vehicle Management -->
+            <VBox style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 10, 0, 0, 2); -fx-border-color: rgba(226, 232, 240, 0.7); -fx-border-width: 1; -fx-border-radius: 12; -fx-spacing: 15; -fx-pref-width: 250; -fx-cursor: hand;" onMouseClicked="#handleManageVehicles">
+                <HBox spacing="15" alignment="CENTER_LEFT">
+                    <StackPane style="-fx-background-color: #e0e7ff; -fx-background-radius: 10; -fx-padding: 10;">
+                        <ImageView fitWidth="24" fitHeight="24" preserveRatio="true">
+                            <image>
+                                <Image url="@/car-icon.png" />
+                            </image>
+                        </ImageView>
+                    </StackPane>
+                    <Label text="Vehicles" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #1e293b;"/>
+                </HBox>
+                <Label text="Manage fleet inventory" style="-fx-font-size: 13px; -fx-text-fill: #64748b;"/>
+                <Button fx:id="manageVehiclesButton" text="Open" onAction="#handleManageVehicles"
+                        style="-fx-background-color: linear-gradient(to right, #4a6baf, #6b46c1); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 8 15; -fx-cursor: hand; -fx-font-size: 13px; -fx-effect: dropshadow(gaussian, rgba(74, 107, 175, 0.2), 5, 0, 0, 2);"/>
+            </VBox>
+
+            <!-- Customer Management -->
+            <VBox style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 10, 0, 0, 2); -fx-border-color: rgba(226, 232, 240, 0.7); -fx-border-width: 1; -fx-border-radius: 12; -fx-spacing: 15; -fx-pref-width: 250; -fx-cursor: hand;" onMouseClicked="#handleManageCustomers">
+                <HBox spacing="15" alignment="CENTER_LEFT">
+                    <StackPane style="-fx-background-color: #e0f2fe; -fx-background-radius: 10; -fx-padding: 10;">
+                        <ImageView fitWidth="24" fitHeight="24" preserveRatio="true">
+                            <image>
+                                <Image url="@/users-icon.png" />
+                            </image>
+                        </ImageView>
+                    </StackPane>
+                    <Label text="Customers" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #1e293b;"/>
+                </HBox>
+                <Label text="Manage customer accounts" style="-fx-font-size: 13px; -fx-text-fill: #64748b;"/>
+                <Button fx:id="manageCustomersButton" text="Open" onAction="#handleManageCustomers"
+                        style="-fx-background-color: linear-gradient(to right, #0ea5e9, #3b82f6); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 8 15; -fx-cursor: hand; -fx-font-size: 13px; -fx-effect: dropshadow(gaussian, rgba(14, 165, 233, 0.2), 5, 0, 0, 2);"/>
+            </VBox>
+
+            <!-- Payments Management -->
+            <VBox style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 10, 0, 0, 2); -fx-border-color: rgba(226, 232, 240, 0.7); -fx-border-width: 1; -fx-border-radius: 12; -fx-spacing: 15; -fx-pref-width: 250; -fx-cursor: hand;" onMouseClicked="#handlePayments">
+                <HBox spacing="15" alignment="CENTER_LEFT">
+                    <StackPane style="-fx-background-color: #fef2f2; -fx-background-radius: 10; -fx-padding: 10;">
+                        <ImageView fitWidth="24" fitHeight="24" preserveRatio="true">
+                            <image>
+                                <Image url="@/dollar-icon.png" />
+                            </image>
+                        </ImageView>
+                    </StackPane>
+                    <Label text="Payments" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #1e293b;"/>
+                </HBox>
+                <Label text="Process transactions" style="-fx-font-size: 13px; -fx-text-fill: #64748b;"/>
+                <Button fx:id="handlePaymentsButton" text="Open" onAction="#handlePayments"
+                        style="-fx-background-color: linear-gradient(to right, #ef4444, #f97316); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 8 15; -fx-cursor: hand; -fx-font-size: 13px; -fx-effect: dropshadow(gaussian, rgba(239, 68, 68, 0.2), 5, 0, 0, 2);"/>
+            </VBox>
+
+            <!-- Reports -->
+            <VBox style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 10, 0, 0, 2); -fx-border-color: rgba(226, 232, 240, 0.7); -fx-border-width: 1; -fx-border-radius: 12; -fx-spacing: 15; -fx-pref-width: 250; -fx-cursor: hand;" onMouseClicked="#handleViewReports">
+                <HBox spacing="15" alignment="CENTER_LEFT">
+                    <StackPane style="-fx-background-color: #f5f3ff; -fx-background-radius: 10; -fx-padding: 10;">
+                        <ImageView fitWidth="24" fitHeight="24" preserveRatio="true">
+                            <image>
+                                <Image url="@/chart-icon.png" />
+                            </image>
+                        </ImageView>
+                    </StackPane>
+                    <Label text="Reports" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #1e293b;"/>
+                </HBox>
+                <Label text="View business analytics" style="-fx-font-size: 13px; -fx-text-fill: #64748b;"/>
+                <Button fx:id="viewReportsButton" text="Open" onAction="#handleViewReports"
+                        style="-fx-background-color: linear-gradient(to right, #8b5cf6, #a855f7); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 8 15; -fx-cursor: hand; -fx-font-size: 13px; -fx-effect: dropshadow(gaussian, rgba(139, 92, 246, 0.2), 5, 0, 0, 2);"/>
+            </VBox>
+
+            <!-- Logout -->
+            <VBox style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 10, 0, 0, 2); -fx-border-color: rgba(226, 232, 240, 0.7); -fx-border-width: 1; -fx-border-radius: 12; -fx-spacing: 15; -fx-pref-width: 250; -fx-cursor: hand;" onMouseClicked="#handleLogout">
+                <HBox spacing="15" alignment="CENTER_LEFT">
+                    <StackPane style="-fx-background-color: #ffe4e6; -fx-background-radius: 10; -fx-padding: 10;">
+                        <ImageView fitWidth="24" fitHeight="24" preserveRatio="true">
+                            <image>
+                                <Image url="@/logout-icon.png" />
+                            </image>
+                        </ImageView>
+                    </StackPane>
+                    <Label text="Logout" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #1e293b;"/>
+                </HBox>
+                <Label text="Sign out of your account" style="-fx-font-size: 13px; -fx-text-fill: #64748b;"/>
+                <Button fx:id="logoutButton" text="Sign Out" onAction="#handleLogout"
+                        style="-fx-background-color: linear-gradient(to right, #f43f5e, #ec4899); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 8 15; -fx-cursor: hand; -fx-font-size: 13px; -fx-effect: dropshadow(gaussian, rgba(244, 63, 94, 0.2), 5, 0, 0, 2);"/>
+            </VBox>
+        </TilePane>
+    </VBox>
+</VBox>

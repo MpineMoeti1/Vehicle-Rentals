@@ -1,0 +1,216 @@
+/* styles.css */
+/* ========== Color Palette ========== */
+.root {
+    -primary-color: #2c3e50;       /* Dark Blue */
+    -secondary-color: #3498db;     /* Vibrant Blue */
+    -accent-color: #e74c3c;        /* Coral Red */
+    -success-color: #27ae60;       /* Emerald Green */
+    -background-color: #f8f9fa;    /* Light Gray */
+    -text-color: #2c3e50;          /* Dark Gray */
+    -light-text: #95a5a6;          /* Medium Gray */
+}
+
+/* ========== Global Styles ========== */
+.root {
+    -fx-font-family: 'Segoe UI', 'Open Sans', sans-serif;
+    -fx-background-color: -background-color;
+    -fx-font-smoothing-type: lcd;
+}
+
+/* ========== Typography ========== */
+.header, .header1, .header-text {
+    -fx-font-size: 24px;
+    -fx-text-fill: -primary-color;
+    -fx-font-weight: 700;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 0, 0, 0, 1);
+}
+
+.header1 {
+    -fx-font-size: 28px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 2, 0.1, 0, 1);
+}
+
+/* ========== Buttons ========== */
+.button {
+    -fx-background-radius: 8px;
+    -fx-padding: 10px 20px;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 4, 0, 0, 2);
+    -fx-text-fill: white;
+    -fx-transition: all 0.2s;
+}
+
+.primary-button {
+    -fx-background-color: linear-gradient(to bottom right, -secondary-color, #2980b9);
+    -fx-padding: 12px 24px;
+}
+
+.primary-button:hover {
+    -fx-effect: dropshadow(gaussian, -secondary-color, 8, 0.2, 0, 2);
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+.success-button {
+    -fx-background-color: linear-gradient(to bottom right, -success-color, #219a52);
+}
+
+.danger-button {
+    -fx-background-color: linear-gradient(to bottom right, -accent-color, #c0392b);
+}
+
+/* ========== Input Fields ========== */
+.text-field, .password-field, .input-field {
+    -fx-background-color: white;
+    -fx-border-color: #dfe6e9;
+    -fx-border-radius: 8px;
+    -fx-padding: 12px;
+    -fx-font-size: 14px;
+    -fx-effect: innershadow(gaussian, rgba(0,0,0,0.03), 2, 0.1, 0, 0);
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: -secondary-color;
+    -fx-effect: dropshadow(gaussian, rgba(52,152,219,0.15), 8, 0.2, 0, 2);
+}
+
+/* ========== Cards & Containers ========== */
+.card, .main-card {
+    -fx-background-color: white;
+    -fx-background-radius: 12px;
+    -fx-padding: 24px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 12, 0.2, 0, 3);
+    -fx-border-color: #ecf0f1;
+    -fx-border-radius: 12px;
+}
+
+/* ========== Tables ========== */
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: #ecf0f1;
+    -fx-border-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 6, 0.1, 0, 2);
+}
+
+.table-column {
+    -fx-background-color: linear-gradient(to bottom, -primary-color, #34495e);
+    -fx-text-fill: white;
+    -fx-font-weight: 600;
+    -fx-font-size: 13px;
+    -fx-padding: 14px 16px;
+    -fx-border-color: #2c3e50;
+}
+
+.table-row-cell:even {
+    -fx-background-color: #f8f9fa;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #e3f2fd;
+}
+
+/* ========== Charts ========== */
+.modern-chart {
+    -fx-background-color: white;
+    -fx-background-radius: 12px;
+    -fx-padding: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 6, 0.1, 0, 2);
+}
+
+.chart-title {
+    -fx-text-fill: -primary-color;
+    -fx-font-size: 18px;
+    -fx-font-weight: 700;
+}
+
+/* ========== Status Messages ========== */
+.status-message {
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-padding: 12px 20px;
+    -fx-background-radius: 8px;
+}
+
+.status-message:error {
+    -fx-text-fill: #c0392b;
+    -fx-background-color: #f9e3e0;
+}
+
+.status-message:success {
+    -fx-text-fill: #27ae60;
+    -fx-background-color: #e2f3ea;
+}
+
+/* ========== Search & Filters ========== */
+.search-field {
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-padding: 10px 20px;
+    -fx-font-size: 14px;
+    -fx-prompt-text-fill: -light-text;
+}
+
+.search-button {
+    -fx-background-color: linear-gradient(to bottom right, -success-color, #219a52);
+    -fx-background-radius: 20px;
+    -fx-padding: 10px 25px;
+}
+
+/* ========== Navigation & Special Controls ========== */
+.navigation-button {
+    -fx-background-color: linear-gradient(to bottom right, #95a5a6, #7f8c8d);
+    -fx-text-fill: white;
+    -fx-background-radius: 8px;
+    -fx-padding: 10px 20px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 4, 0.1, 0, 2);
+}
+
+.navigation-button:hover {
+    -fx-background-color: linear-gradient(to bottom right, #7f8c8d, #6c7a7b);
+}
+
+/* ========== Interactive Elements ========== */
+.check-box {
+    -fx-text-fill: -text-color;
+    -fx-font-size: 14px;
+}
+
+.check-box .box {
+    -fx-background-color: white;
+    -fx-border-color: #bdc3c7;
+    -fx-border-radius: 4px;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: -secondary-color;
+}
+
+/* ========== Subtle Animations ========== */
+.button:hover, .navigation-button:hover {
+    -fx-translate-y: -1px;
+}
+
+.button:pressed, .navigation-button:pressed {
+    -fx-translate-y: 0px;
+}
+/* Add hover effects */
+.button:hover {
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+    -fx-transition: all 0.2s;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #f8fafc;
+}
+.table-row-cell:selected {
+    -fx-background-color: #e2e8f0;
+    -fx-text-background-color: #1e293b;
+}
+
+.text-field:focused, .comboBox:focused {
+    -fx-border-color: #3b82f6 !important;
+    -fx-effect: dropshadow(gaussian, rgba(59,130,246,0.15), 8, 0, 0, 2);
+}

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
+
+<?import java.net.URL?>
+<BorderPane fx:id="customerPane" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.demo1.CustomerManagementController">
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
+
+    <top>
+        <Label text="Customer Management"
+               style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-padding: 20 0 20 0; -fx-text-fill: #4a148c;"
+               BorderPane.alignment="CENTER"/>
+    </top>
+
+    <center>
+        <StackPane alignment="CENTER">
+            <VBox spacing="25" alignment="CENTER"
+                  style="-fx-padding: 30; -fx-background-color: #f9f9f9;">
+
+                <!-- Input and Action Section -->
+                <GridPane hgap="15" vgap="15" alignment="CENTER"
+                          style="-fx-background-color: white; -fx-padding: 20; -fx-border-color: #ccc;
+                                 -fx-border-radius: 8; -fx-background-radius: 8; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 4);">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT"/>
+                        <ColumnConstraints halignment="LEFT"/>
+                        <ColumnConstraints halignment="LEFT"/>
+                    </columnConstraints>
+
+                    <!-- Input Fields Row 1 -->
+                    <TextField fx:id="idField" promptText="Customer ID"
+                               style="-fx-pref-width: 200; -fx-padding: 8; -fx-border-color: #ccc; -fx-border-radius: 4;"
+                               GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <TextField fx:id="nameField" promptText="Name"
+                               style="-fx-pref-width: 200; -fx-padding: 8; -fx-border-color: #ccc; -fx-border-radius: 4;"
+                               GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                    <TextField fx:id="contactField" promptText="Contact"
+                               style="-fx-pref-width: 200; -fx-padding: 8; -fx-border-color: #ccc; -fx-border-radius: 4;"
+                               GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+
+                    <!-- Input Fields Row 2 -->
+                    <TextField fx:id="licenseField" promptText="License Number"
+                               style="-fx-pref-width: 200; -fx-padding: 8; -fx-border-color: #ccc; -fx-border-radius: 4;"
+                               GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <TextField fx:id="rentalHistoryField" promptText="Rental History"
+                               style="-fx-pref-width: 200; -fx-padding: 8; -fx-border-color: #ccc; -fx-border-radius: 4;"
+                               GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                    <!-- Action Buttons -->
+                    <HBox spacing="15" alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.columnSpan="3">
+                        <Button text="Add Customer" onAction="#handleAdd"
+                                style="-fx-background-color: #4caf50; -fx-text-fill: white; -fx-font-weight: bold;
+                                       -fx-background-radius: 5; -fx-padding: 8 20;"/>
+                        <Button text="Update Customer" onAction="#handleUpdate"
+                                style="-fx-background-color: #2196f3; -fx-text-fill: white; -fx-font-weight: bold;
+                                       -fx-background-radius: 5; -fx-padding: 8 20;"/>
+                        <Button text="Delete Customer" onAction="#handleDelete"
+                                style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-weight: bold;
+                                       -fx-background-radius: 5; -fx-padding: 8 20;"/>
+                    </HBox>
+
+                    <!-- Search Section -->
+                    <HBox spacing="15" alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="3">
+                        <TextField fx:id="searchField" promptText="Search customers..."
+                                   style="-fx-pref-width: 300; -fx-padding: 8; -fx-border-color: #ccc; -fx-border-radius: 4;"/>
+                        <Button text="Search" onAction="#handleSearch"
+                                style="-fx-background-color: #6a1b9a; -fx-text-fill: white; -fx-font-weight: bold;
+                                       -fx-background-radius: 5; -fx-padding: 8 20;"/>
+                        <Button text="Refresh" onAction="#loadCustomers"
+                                style="-fx-background-color: #9e9e9e; -fx-text-fill: white; -fx-font-weight: bold;
+                                       -fx-background-radius: 5; -fx-padding: 8 20;"/>
+                    </HBox>
+                </GridPane>
+
+                <!-- Customer Table -->
+                <TableView fx:id="customerTable" maxWidth="850"
+                           style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 6; -fx-padding: 10;">
+                    <columns>
+                        <TableColumn fx:id="idCol" text="Customer ID"/>
+                        <TableColumn fx:id="nameCol" text="Name"/>
+                        <TableColumn fx:id="contactCol" text="Contact"/>
+                        <TableColumn fx:id="licenseCol" text="License Number"/>
+                        <TableColumn fx:id="rentalHistoryCol" text="Rental History"/>
+                    </columns>
+                </TableView>
+
+                <!-- Back Button -->
+                <Button fx:id="btnBack" text="Back to Dashboard" onAction="#handleBackButtonAction"
+                        style="-fx-background-color: transparent; -fx-text-fill: #4a148c; -fx-font-weight: bold;
+                               -fx-underline: true;"/>
+            </VBox>
+        </StackPane>
+    </center>
+</BorderPane>

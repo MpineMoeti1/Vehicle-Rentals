@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo1.InvoiceController">
+    <center>
+        <VBox spacing="10" alignment="CENTER">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <Label text="Vehicle Rental Invoice" style="-fx-font-size: 22px; -fx-font-weight: bold;" />
+
+            <GridPane hgap="20" vgap="10">
+                <columnConstraints>
+                    <ColumnConstraints halignment="RIGHT"/>
+                    <ColumnConstraints halignment="LEFT"/>
+                </columnConstraints>
+
+                <rowConstraints>
+                    <RowConstraints />
+                    <RowConstraints />
+                    <RowConstraints />
+                    <RowConstraints />
+                    <RowConstraints />
+                    <RowConstraints />
+                    <RowConstraints />
+                </rowConstraints>
+
+                <Label text="Booking ID:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <Label fx:id="bookingIdLabel" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Rental Fee:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <Label fx:id="amountLabel" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label text="Payment Method:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <Label fx:id="paymentMethodLabel" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                <Label text="Rental Duration:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <Label fx:id="rentalDurationLabel" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                <Label text="Additional Services:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                <Label fx:id="additionalFeesLabel" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                <Label text="Late Fees:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                <Label fx:id="lateFeesLabel" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+                <Label text="Total Amount:" style="-fx-font-weight: bold;" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+                <Label fx:id="totalLabel" style="-fx-font-weight: bold;" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+            </GridPane>
+
+            <Button text="Close Invoice" onAction="#handleClose"
+                    style="-fx-background-color: #6200ee; -fx-text-fill: white; -fx-font-weight: bold;" />
+        </VBox>
+    </center>
+</BorderPane>
